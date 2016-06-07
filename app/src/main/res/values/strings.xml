@@ -1,12 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">NetGuard</string>
-    <string name="app_description">NetGuard provides simple and advanced ways to block access to the internet - no root required. Applications and addresses can individually be allowed or denied access to your Wi-Fi and/or mobile connection.</string>
-    <string name="app_copyright">Copyright \u00A9 2015-2016 by M. Bokhorst (M66B)</string>
-    <string name="app_android">NetGuard requires Android 4.0 or later</string>
-    <string name="app_license">By using NetGuard, you agree to the <a href="http://www.gnu.org/licenses/gpl.txt">GNU General Public License version 3</a></string>
-    <string name="app_first">Great care has been taken to develop and test NetGuard,
-however it is impossible to guarantee NetGuard will work correctly on every device.
-\n\nBy using NetGuard, you agree to the <a href="http://www.gnu.org/licenses/gpl.txt">GNU General Public License version 3</a></string>
+    <string name="app_name" translatable="false">FilterEagle</string>
+    <string name="app_description">FilterEagle provides network filtering without root access. It also has automated-adblock option.</string>
+    <string name="app_copyright">Copyright \u00A9 2015-2016 by M.Ozsoy</string>
+    <string name="app_android">FilterEagle requires Android 4.0 or later</string>
+    <string name="app_license">By using FilterEagle, you agree to the <a href="http://www.gnu.org/licenses/gpl.txt">GNU General Public License version 3</a></string>
+    <string name="app_first">By using FilterEagle, you agree to the <a href="http://www.gnu.org/licenses/gpl.txt">GNU General Public License version 3</a></string>
 
     <string name="menu_search">Search for application</string>
     <string name="menu_filter">Filter applications</string>
@@ -81,6 +79,7 @@ however it is impossible to guarantee NetGuard will work correctly on every devi
     <string name="setting_log_app">Log internet access</string>
     <string name="setting_access">Notify on internet access</string>
     <string name="setting_filter">Filter traffic</string>
+    <string name="setting_adblock">Automated adblock</string>
     <string name="setting_track_usage">Track network usage</string>
     <string name="setting_reset_usage">Reset network usage</string>
     <string name="setting_show_resolved" translatable="false">Show resolved domain names</string>
@@ -111,14 +110,14 @@ however it is impossible to guarantee NetGuard will work correctly on every devi
     <string name="setting_technical_subscription">Subscriptions</string>
 
     <string name="summary_install">Show status bar notification to directly configure newly installed applications (pro feature)</string>
-    <string name="summary_auto">After disabling using the widget, automatically enable NetGuard again after the selected number of minutes (enter zero to disable this option)</string>
+    <string name="summary_auto">After disabling using the widget, automatically enable FilterEagle again after the selected number of minutes (enter zero to disable this option)</string>
     <string name="summary_delay">After turning the screen off, keep screen on rules active for the selected number of minutes (enter zero to disable this option)</string>
     <string name="summary_update">Check for new releases on GitHub twice daily</string>
 
     <string name="summary_tethering">Depending on the Android version, tethering may work or may not work. Tethered traffic cannot be filtered.</string>
     <string name="summary_subnet">Enable subnet routing; might enable Wi-Fi calling, but might also trigger bugs in Android and increase battery usage</string>
     <string name="summary_lan">Allow applications to connect to local area network addresses, like 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16</string>
-    <string name="summary_ip6">Route IP version 6 traffic to NetGuard so it can selectively be allowed or blocked</string>
+    <string name="summary_ip6">Route IP version 6 traffic to FilterEagle so it can selectively be allowed or blocked</string>
     <string name="summary_wifi_home">Apply Wi-Fi network rules for selected network only (apply mobile network rules for other Wi-Fi networks)</string>
     <string name="summary_metered">Apply mobile network rules to metered (paid, tethered) Wi-Fi networks</string>
     <string name="summary_metered_2g">Apply Wi-Fi network rules for 2G data connections</string>
@@ -130,6 +129,7 @@ however it is impossible to guarantee NetGuard will work correctly on every devi
     <string name="summary_log_app">Log attempts to access the internet for applications. This might result in extra battery usage.</string>
     <string name="summary_access">Show a status bar notification when an application attempts to access a new internet address (when filtering is disabled, only blocked internet access attempts will be notified)</string>
     <string name="summary_filter">Filter IP packets going out of the VPN tunnel. This might result in extra battery usage.</string>
+    <string name="summary_adblock">Automated ad blocking. Your entire URL traffic will be anonymously stored on a central database.</string>
     <string name="summary_track_usage">Track the number of bytes sent and received for each application and address. This might result in extra battery usage.</string>
     <string name="summary_block_domains">Respond with \'name error\' (NXDOMAIN) for blocked domain names. This switch is disabled when no hosts file is available.</string>
     <string name="summary_proxy">SOCKS5 proxy server IP address and port number</string>
@@ -143,20 +143,20 @@ however it is impossible to guarantee NetGuard will work correctly on every devi
     <string name="msg_packages">%1$d allowed, %2$d blocked</string>
     <string name="msg_hosts">%1$d allowed, %2$d blocked, %3$d hosts</string>
     <string name="msg_waiting">Waiting for event</string>
-    <string name="msg_disabled">NetGuard is disabled, use the switch above to enable NetGuard</string>
-    <string name="msg_revoked">NetGuard has been disabled, likely by using another VPN based application</string>
-    <string name="msg_error">NetGuard has been disabled, because of an internal error</string>
+    <string name="msg_disabled">FilterEagle is disabled, use the switch above to enable FilterEagle</string>
+    <string name="msg_revoked">FilterEagle has been disabled, likely by using another VPN based application</string>
+    <string name="msg_error">FilterEagle has been disabled, because of an internal error</string>
     <string name="msg_start_failed">The Android VPN service could not be started, which is most likely caused by a bug in your Android version.
-Restarting your device or revoking the VPN permission using the Android settings from NetGuard (if possible) might (temporarily) solve this problem.</string>
+Restarting your device or revoking the VPN permission using the Android settings from FilterEagle (if possible) might (temporarily) solve this problem.</string>
     <string name="msg_installed">\'%1$s\' installed</string>
     <string name="msg_access">%1$s attempted internet access</string>
     <string name="msg_completed">Action completed</string>
-    <string name="msg_vpn">NetGuard uses a local VPN to filter internet traffic.
+    <string name="msg_vpn">FilterEagle uses a local VPN to filter internet traffic.
 For this reason, please allow a VPN connection in the next dialog.
 Your internet traffic is not being sent to a remote VPN server.</string>
-    <string name="msg_autostart">NetGuard could not be started automatically on boot because of a bug in your Android version</string>
-    <string name="msg_try">Try NetGuard</string>
-    <string name="msg_terms">By donating you agree to the <a href="http://www.netguard.me/#terms">terms &amp; conditions</a></string>
+    <string name="msg_autostart">FilterEagle could not be started automatically on boot because of a bug in your Android version</string>
+    <string name="msg_try">Try FilterEagle</string>
+    <string name="msg_terms">Free</string>
     <string name="msg_dimming">If you cannot press OK in the next dialog, another (screen dimming) application is likely manipulating the screen.</string>
     <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/day</string>
     <string name="msg_kbsec">%7.3f KB/s</string>
@@ -165,9 +165,9 @@ Your internet traffic is not being sent to a remote VPN server.</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for NetGuard.
-\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don\'t optimize\".</string>
-    <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to NetGuard - Android assumes the data and power are being used by NetGuard, rather than the original applications</string>
+    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for FilterEagle.
+\n\nIn the next dialog, select \"All apps\" at the top, tap on FilterEagle in the list and select and confirm \"Don\'t optimize\".</string>
+    <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to FilterEagle - Android assumes the data and power are being used by FilterEagle, rather than the original applications</string>
     <string name="msg_log_disabled">Traffic logging is disabled, use the switch above to enable logging. Traffic logging might result in extra battery usage.</string>
     <string name="msg_clear_rules">This will reset the rules and conditions to their default values</string>
     <string name="msg_reset_access">This will delete access attempt log lines without allow/block rules</string>
@@ -178,7 +178,7 @@ Your internet traffic is not being sent to a remote VPN server.</string>
     <string name="msg_start_forward" formatted="false">Start forwarding from %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
     <string name="msg_stop_forward">Stop forwarding of %1$s port %2$d?</string>
     <string name="msg_metered">Network is metered</string>
-    <string name="msg_queue">NetGuard is busy</string>
+    <string name="msg_queue">FilterEagle is busy</string>
     <string name="msg_update">Update available, tap to download</string>
     <string name="msg_system">Managing system applications can be enabled in the advanced options</string>
     <string name="msg_issue">Please describe the problem and indicate the time of the problem:</string>
@@ -275,4 +275,6 @@ Your internet traffic is not being sent to a remote VPN server.</string>
     </string-array>
 
     <string name="fingerprint" translatable="false">ef46f813d2c8a064d72c936b9b96d1cccc989378</string>
+    <string name="app_key">fm8934hf34890hcfq9ewhfe8934c</string>
+    <string name="serverurl">192.168.0.24:8080</string>
 </resources>

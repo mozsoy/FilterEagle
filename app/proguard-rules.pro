@@ -21,7 +21,7 @@
 -keepattributes SourceFile,LineNumberTable
 
 #NetGuard
--keepnames class eu.faircode.netguard.** { *; }
+-keepnames class com.master.metehan.filtereagle.** { *; }
 
 #JNI
 -keepclasseswithmembernames class * {
@@ -29,18 +29,18 @@
 }
 
 #JNI callbacks
--keep class eu.faircode.netguard.Allowed { *; }
--keep class eu.faircode.netguard.Packet { *; }
--keep class eu.faircode.netguard.ResourceRecord { *; }
--keep class eu.faircode.netguard.Usage { *; }
--keep class eu.faircode.netguard.ServiceSinkhole {
+-keep class com.master.metehan.filtereagle.Allowed { *; }
+-keep class com.master.metehan.filtereagle.Packet { *; }
+-keep class com.master.metehan.filtereagle.ResourceRecord { *; }
+-keep class com.master.metehan.filtereagle.Usage { *; }
+-keep class com.master.metehan.filtereagle.ServiceSinkhole {
     void nativeExit(java.lang.String);
     void nativeError(int, java.lang.String);
-    void logPacket(eu.faircode.netguard.Packet);
-    void dnsResolved(eu.faircode.netguard.ResourceRecord);
+    void logPacket(com.master.metehan.filtereagle.Packet);
+    void dnsResolved(com.master.metehan.filtereagle.ResourceRecord);
     boolean isDomainBlocked(java.lang.String);
-    eu.faircode.netguard.Allowed isAddressAllowed(eu.faircode.netguard.Packet);
-    void accountUsage(eu.faircode.netguard.Usage);
+    com.master.metehan.filtereagle.Allowed isAddressAllowed(com.master.metehan.filtereagle.Packet);
+    void accountUsage(com.master.metehan.filtereagle.Usage);
 }
 
 #Support library

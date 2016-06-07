@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eu.faircode.netguard">
+    package="com.master.metehan.filtereagle">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -102,8 +102,8 @@
             android:label="@string/app_name"
             android:theme="@style/AppDialog">
             <intent-filter>
-                <action android:name="eu.faircode.netguard.START_PORT_FORWARD" />
-                <action android:name="eu.faircode.netguard.STOP_PORT_FORWARD" />
+                <action android:name="com.master.metehan.filtereagle.START_PORT_FORWARD" />
+                <action android:name="com.master.metehan.filtereagle.STOP_PORT_FORWARD" />
             </intent-filter>
         </activity>
 
@@ -136,8 +136,8 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="eu.faircode.netguard.APPWIDGET_ON" />
-                <action android:name="eu.faircode.netguard.APPWIDGET_OFF" />
+                <action android:name="com.master.metehan.filtereagle.APPWIDGET_ON" />
+                <action android:name="com.master.metehan.filtereagle.APPWIDGET_OFF" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"

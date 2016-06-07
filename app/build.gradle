@@ -6,12 +6,12 @@ model {
         buildToolsVersion = "23.0.3" // "24.0.0 rc2"
 
         defaultConfig {
-            applicationId = "eu.faircode.netguard"
+            applicationId = "com.master.metehan.filtereagle"
             minSdkVersion.apiLevel = 14
             targetSdkVersion.apiLevel = 23 // 24
             versionCode = 2016051401
             versionName = "2.25"
-            archivesBaseName = "NetGuard-v$versionName-$versionCode-sdk-$targetSdkVersion.apiLevel"
+            archivesBaseName = "FilterEagle-v$versionName-$versionCode-sdk-$targetSdkVersion.apiLevel"
 
             buildConfigFields {
                 create() {
@@ -74,8 +74,9 @@ model {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.2.+'
     compile 'com.android.support:recyclerview-v7:23.2.+'
     compile 'com.squareup.picasso:picasso:2.5.+'
+    compile files('C:/Users/Metehan Ozsoy/Documents/Master\'s Thesis/FilterEagle/build/extralibs/android-async-http-1.4.4.jar')
 }

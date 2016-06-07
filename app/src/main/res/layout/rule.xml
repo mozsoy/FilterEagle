@@ -343,7 +343,7 @@
             android:text="@string/title_access"
             android:textAppearance="@style/TextTitle" />
 
-        <eu.faircode.netguard.ExpandedListView
+        <com.master.metehan.filtereagle.ExpandedListView
             android:id="@+id/lvAccess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

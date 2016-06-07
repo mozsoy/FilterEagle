@@ -52,16 +52,16 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
         return -1;
     }
 
-    const char *packet = "eu/faircode/netguard/Packet";
+    const char *packet = "com/master/metehan/filtereagle/Packet";
     clsPacket = jniGlobalRef(env, jniFindClass(env, packet));
 
-    const char *allowed = "eu/faircode/netguard/Allowed";
+    const char *allowed = "com/master/metehan/filtereagle/Allowed";
     clsAllowed = jniGlobalRef(env, jniFindClass(env, allowed));
 
-    const char *rr = "eu/faircode/netguard/ResourceRecord";
+    const char *rr = "com/master/metehan/filtereagle/ResourceRecord";
     clsRR = jniGlobalRef(env, jniFindClass(env, rr));
 
-    const char *usage = "eu/faircode/netguard/Usage";
+    const char *usage = "com/master/metehan/filtereagle/Usage";
     clsUsage = jniGlobalRef(env, jniFindClass(env, usage));
 
     // Raise file number limit to maximum
@@ -95,7 +95,7 @@ void JNI_OnUnload(JavaVM *vm, void *reserved) {
 // JNI ServiceSinkhole
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1init(JNIEnv *env, jobject instance) {
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1init(JNIEnv *env, jobject instance) {
     loglevel = ANDROID_LOG_WARN;
 
     struct arguments args;
@@ -112,7 +112,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1init(JNIEnv *env, jobject instanc
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1start(
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1start(
         JNIEnv *env, jobject instance, jint tun, jboolean fwd53, jint loglevel_) {
 
     loglevel = loglevel_;
@@ -151,7 +151,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1start(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1stop(
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1stop(
         JNIEnv *env, jobject instance, jint tun,
         jboolean datagram, jboolean stream) {
     pthread_t t = thread_id;
@@ -183,12 +183,12 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1stop(
 }
 
 JNIEXPORT jint JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1get_1mtu(JNIEnv *env, jobject instance) {
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1get_1mtu(JNIEnv *env, jobject instance) {
     return get_mtu();
 }
 
 JNIEXPORT jintArray JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1get_1stats(JNIEnv *env, jobject instance) {
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1get_1stats(JNIEnv *env, jobject instance) {
     if (pthread_mutex_lock(&lock))
         log_android(ANDROID_LOG_ERROR, "pthread_mutex_lock failed");
 
@@ -221,7 +221,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1get_1stats(JNIEnv *env, jobject i
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1pcap(
         JNIEnv *env, jclass type,
         jstring name_, jint record_size, jint file_size) {
 
@@ -280,7 +280,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(
 
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1done(JNIEnv *env, jobject instance) {
+Java_com_master_metehan_filtereagle_ServiceSinkhole_jni_1done(JNIEnv *env, jobject instance) {
     log_android(ANDROID_LOG_INFO, "Done");
 
     clear_icmp();
@@ -294,7 +294,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1done(JNIEnv *env, jobject instanc
 // JNI Util
 
 JNIEXPORT jstring JNICALL
-Java_eu_faircode_netguard_Util_jni_1getprop(JNIEnv *env, jclass type, jstring name_) {
+Java_com_master_metehan_filtereagle_Util_jni_1getprop(JNIEnv *env, jclass type, jstring name_) {
     const char *name = (*env)->GetStringUTFChars(env, name_, 0);
 
     char value[PROP_VALUE_MAX + 1] = "";
@@ -306,7 +306,7 @@ Java_eu_faircode_netguard_Util_jni_1getprop(JNIEnv *env, jclass type, jstring na
 }
 
 JNIEXPORT jboolean JNICALL
-Java_eu_faircode_netguard_Util_is_1numeric_1address(JNIEnv *env, jclass type, jstring ip_) {
+Java_com_master_metehan_filtereagle_Util_is_1numeric_1address(JNIEnv *env, jclass type, jstring ip_) {
     jboolean numeric = 0;
     const char *ip = (*env)->GetStringUTFChars(env, ip_, 0);
 
@@ -456,7 +456,7 @@ void log_packet(const struct arguments *args, jobject jpacket) {
 
     jclass clsService = (*args->env)->GetObjectClass(args->env, args->instance);
 
-    const char *signature = "(Leu/faircode/netguard/Packet;)V";
+    const char *signature = "(Lcom/master/metehan/filtereagle/Packet;)V";
     if (midLogPacket == NULL)
         midLogPacket = jniGetMethodID(args->env, clsService, "logPacket", signature);
 
@@ -493,11 +493,11 @@ void dns_resolved(const struct arguments *args,
 
     jclass clsService = (*args->env)->GetObjectClass(args->env, args->instance);
 
-    const char *signature = "(Leu/faircode/netguard/ResourceRecord;)V";
+    const char *signature = "(Lcom/master/metehan/filtereagle/ResourceRecord;)V";
     if (midDnsResolved == NULL)
         midDnsResolved = jniGetMethodID(args->env, clsService, "dnsResolved", signature);
 
-    const char *rr = "eu/faircode/netguard/ResourceRecord";
+    const char *rr = "com/master/metehan/filtereagle/ResourceRecord";
     if (midInitRR == NULL)
         midInitRR = jniGetMethodID(args->env, clsRR, "<init>", "()V");
 
@@ -590,7 +590,7 @@ struct allowed *is_address_allowed(const struct arguments *args, jobject jpacket
 
     jclass clsService = (*args->env)->GetObjectClass(args->env, args->instance);
 
-    const char *signature = "(Leu/faircode/netguard/Packet;)Leu/faircode/netguard/Allowed;";
+    const char *signature = "(Lcom/master/metehan/filtereagle/Packet;)Lcom/master/metehan/filtereagle/Allowed;";
     if (midIsAddressAllowed == NULL)
         midIsAddressAllowed = jniGetMethodID(args->env, clsService, "isAddressAllowed", signature);
 
@@ -673,7 +673,7 @@ jobject create_packet(const struct arguments *args,
         env->SetByteArrayRegion (ret, 0, 3, b);
      */
 
-    const char *packet = "eu/faircode/netguard/Packet";
+    const char *packet = "com/master/metehan/filtereagle/Packet";
     if (midInitPacket == NULL)
         midInitPacket = jniGetMethodID(env, clsPacket, "<init>", "()V");
     jobject jpacket = jniNewObject(env, clsPacket, midInitPacket, packet);
@@ -751,11 +751,11 @@ void account_usage(const struct arguments *args, jint version, jint protocol,
 
     jclass clsService = (*args->env)->GetObjectClass(args->env, args->instance);
 
-    const char *signature = "(Leu/faircode/netguard/Usage;)V";
+    const char *signature = "(Lcom/master/metehan/filtereagle/Usage;)V";
     if (midAccountUsage == NULL)
         midAccountUsage = jniGetMethodID(args->env, clsService, "accountUsage", signature);
 
-    const char *usage = "eu/faircode/netguard/Usage";
+    const char *usage = "com/master/metehan/filtereagle/Usage";
     if (midInitUsage == NULL)
         midInitUsage = jniGetMethodID(args->env, clsUsage, "<init>", "()V");
 
