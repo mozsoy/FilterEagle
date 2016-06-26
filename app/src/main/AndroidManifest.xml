@@ -143,5 +143,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget" />
         </receiver>
+
+        <service android:name=".URLAlarmService"
+            android:enabled="true" />
+
+        <receiver android:name=".URLBroadcastReceiver"/>
     </application>
 </manifest>

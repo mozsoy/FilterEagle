@@ -8,13 +8,22 @@ import java.util.HashMap;
 public class URLCache {
 
     private static URLCache urlCacheInstance = null;
-    private static int CACHE_SIZE = 1000;
+    // private static int CACHE_SIZE = 1000;
     private HashMap<String, Integer> urlMap = new HashMap<>();
 
     public static URLCache getInstance() {
         if (urlCacheInstance == null)
             urlCacheInstance = new URLCache();
         return urlCacheInstance;
+    }
+
+    public void updateFreq(String url, int freq) {
+        if(urlCacheInstance.urlMap.containsKey(url)) {
+            int oldFreq = urlCacheInstance.urlMap.get(url);
+            urlCacheInstance.urlMap.put(url, oldFreq + freq);
+        } else {
+            urlCacheInstance.urlMap.put(url, freq);
+        }
     }
 
     public  void clearCache() {

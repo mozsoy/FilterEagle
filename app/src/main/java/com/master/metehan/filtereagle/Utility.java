@@ -1,5 +1,8 @@
 package com.master.metehan.filtereagle;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,13 +30,14 @@ public class Utility {
         return matcher.matches();
 
     }
+
     /**
-     * Checks for Null String object
+     * Serialize HashMap into JSON object
      *
-     * @param txt
-     * @return true for not null and false for null String object
+     * This method is just a reminder of new JSONObject(map) constructor.
      */
-    public static boolean isNotNull(String txt){
-        return txt!=null && txt.trim().length()>0 ? true: false;
+    public static JSONObject mapToJSON(HashMap map) {
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject;
     }
 }

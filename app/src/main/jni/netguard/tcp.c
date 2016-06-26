@@ -469,6 +469,7 @@ jboolean handle_tcp(const struct arguments *args,
             ntohl(tcphdr->seq) - (cur == NULL ? 0 : cur->remote_start),
             tcphdr->ack ? ntohl(tcphdr->ack_seq) - (cur == NULL ? 0 : cur->local_start) : 0,
             datalen, ntohs(tcphdr->window), uid);
+
     log_android(tcphdr->urg ? ANDROID_LOG_WARN : ANDROID_LOG_DEBUG, packet);
 
     // Check session

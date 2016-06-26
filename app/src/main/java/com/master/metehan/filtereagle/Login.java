@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -63,7 +65,7 @@ public class Login{
     public void invokeWS(RequestParams params){
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.0.24:8080/useraccount/login/dologin",params ,new AsyncHttpResponseHandler() {
+        client.get("http://" + server_url + "/useraccount/login/dologin",params ,new AsyncHttpResponseHandler() {
             // When the response returned by REST has Http response code '200'
             @Override
             public void onSuccess(String response) {
@@ -74,6 +76,9 @@ public class Login{
                     // When the JSON response has status boolean value assigned with true
                     if(obj.getBoolean("status")){
                         Toast.makeText(context, "You are successfully logged in!", Toast.LENGTH_LONG).show();
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putBoolean("logged", true).commit();
                         // Navigate to Home screen
                     }
                     // Else display error message
