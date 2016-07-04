@@ -70,7 +70,7 @@ public class Register {
     public void invokeWS(RequestParams params){
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://" + server_url + "/useraccount/register/doregister"
+        client.get(server_url + "register/doregister"
                 ,params ,new AsyncHttpResponseHandler() {
 
             // When the response returned by REST has Http response code '200'

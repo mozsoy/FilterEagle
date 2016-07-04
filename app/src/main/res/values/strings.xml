@@ -276,5 +276,5 @@ Your internet traffic is not being sent to a remote VPN server.</string>
 
     <string name="fingerprint" translatable="false">ef46f813d2c8a064d72c936b9b96d1cccc989378</string>
     <string name="app_key">fm8934hf34890hcfq9ewhfe8934c</string>
-    <string name="serverurl">192.168.0.4:8080</string>
+    <string name="serverurl">http://adlist.herokuapp.com/</string>
 </resources>

@@ -66,7 +66,7 @@ public class URLMapSender {
     public void invokeWS(RequestParams params){
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://" + server_url + "/useraccount/urlupdate/doupdate"
+        client.get(server_url + "urlupdate/doupdate"
                 ,params ,new AsyncHttpResponseHandler() {
                     // When the response returned by REST has Http response code '200'
                     @Override
