@@ -614,7 +614,7 @@ public class ActivitySettings extends AppCompatActivity implements SharedPrefere
                 }
             } else { // log out
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean("logged", false);
+                editor.putBoolean("logged", false).commit();
             }
         } else if ("use_hosts".equals(name))
             ServiceSinkhole.reload("changed " + name, this);

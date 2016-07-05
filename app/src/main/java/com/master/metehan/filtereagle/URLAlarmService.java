@@ -48,11 +48,14 @@ public class URLAlarmService extends Service {
 
         mManager.notify(0, notification);
         */
-        String server_url = this.getString(R.string.serverurl);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String uid = prefs.getString("uid","");
-        URLMapSender urlMapSender = new URLMapSender(server_url,uid,this);
-        urlMapSender.sendURLMap();
+        boolean isLogged = prefs.getBoolean("logged", false);
+        if(isLogged) {
+            String server_url = this.getString(R.string.serverurl);
+            String uid = prefs.getString("uid", "");
+            URLMapSender urlMapSender = new URLMapSender(server_url, uid, this);
+            urlMapSender.sendURLMap();
+        }
     }
 
     @Override
